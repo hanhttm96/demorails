@@ -1,0 +1,10 @@
+<%= form_for(@micropost ||= current_user.micropost.find) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+  <%= f.text_area :content, placeholder: :content %>
+  <%= f.hidden_field :micropost_id, value: @micropost.id %>
+  </div>
+  <br>
+  <br>
+  <%= f.submit "submit", class: "btn btn-primary" %>
+  <% end %>
